@@ -1,6 +1,8 @@
 class Admin::DashboardController < ApplicationController
   before_filter :authenticate
   def show
+    @countProducts = Product.all.count
+    @countCategories = Category.all.count
   end
 
   protected 
@@ -10,5 +12,5 @@ class Admin::DashboardController < ApplicationController
       username == ENV["username"] && password == ENV["password"]
     end
   end
-  
+
 end
