@@ -17,6 +17,7 @@
         <li>
           <%= link_to 'About', about_path %>
         </li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             Categories
@@ -28,6 +29,27 @@
             <% end %>
           </ul>
         </li>
+
+        <% if current_user %>
+        <li>
+          <%= link_to "Logout", '/logout' %>
+        </li>
+        <li>
+            <h3 style="
+            padding-left: 100px; 
+            padding-right: 20px; 
+            margin-top: 10px;">
+            Welcome to the Jungle  <%= current_user.name %> 
+            </h3>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to 'Login', '/login' %>
+        </li>
+        <li>
+          <%= link_to 'Signup', '/signup' %>
+        </li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">
