@@ -6,12 +6,12 @@ RSpec.describe Product, type: :model do
     # validation tests/examples here
     before do 
       @category = Category.new(name: "Hardware")
-      @category.save!
+      @category.save
       @product = Product.new(name: "hammer", price: 10, quantity: 10, category: @category )
       @product.save 
     end
 
-    it "Passes if all values are entered correctly" do
+    it "Passes if all values are entered" do
         expect(@product).to be_valid
     end
 
