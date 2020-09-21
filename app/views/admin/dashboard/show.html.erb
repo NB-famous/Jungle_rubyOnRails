@@ -1,2 +1,14 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<div class="jumbotron" style="
+    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ">
+    <h1>Admin Dashboard</h1>
+    <hr style="width: 100%; border: solid white">
+
+    <h2>Number of Products: <%= @countProducts %></h2>
+    <h2>Number of Categories: <%= @countCategories %></h2><br>
+    <%= link_to "Back To Admin Products List", admin_products_path, class: 'btn btn-lg btn-primary' %>
+</div>
+
