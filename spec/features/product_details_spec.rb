@@ -1,8 +1,7 @@
 require 'rails_helper'
-require 'support/database_cleaner'
 
-RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
-
+RSpec.feature "ProductDetails", type: :feature, js: true do
+  
   before :each do
     @category = Category.create! name: 'Apparel'
 
@@ -17,17 +16,18 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     end
   end
 
-  scenario "They see all products" do
-
+  scenario "Renders product page" do
     # ACT
     visit root_path
-
-    # DEBUG / VERIFY
+    find_link("Details", match: :first).click
+    sleep 5
+    #puts page.html
+    
+    # DEBUG
     save_screenshot
 
-     # VERIFY
-     expect(page).to have_css 'article.product', count: 10
-
+    # VERIFY
+    expect(page).to have_content 'Description'
   end
 
 end
