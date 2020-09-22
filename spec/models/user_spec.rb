@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   describe 'Validations' do
     # validation tests/examples here
 
-    before :each do 
+    before do 
       @user = User.new(name:"James Bond", email: "nikko@nikko.ca", password: "password", password_confirmation: "password")
       @user.save!
     end
@@ -49,8 +49,8 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials' do
     # examples for this class method here
-    before :each do 
-      @user = User.new(name:"JamesBond", email:"nikko@nikko.ca", password:"password", password_confirmation: "password")
+    before do 
+      @user = User.new(name:"James Bond", email:"nikko@nikko.ca", password:"password", password_confirmation: "password")
     end
   
     it "shoud return the correct user" do
